@@ -17,5 +17,6 @@ function runCode() {
     });
 }
 
+// Tests
 runCode()
   .then((result) => console.log(result));

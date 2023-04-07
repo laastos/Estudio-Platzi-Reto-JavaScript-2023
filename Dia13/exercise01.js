@@ -23,57 +23,46 @@ function groupProducts2(products, category) {
 }
 
 // Tests
-var start = performance.now();
-var products = [
-  { name: "Smartphone", category: "Electronics", price: 800 },
-  { name: "Laptop", category: "Electronics", price: 1200 },
-  { name: "Shirt", category: "Clothing", price: 50 },
-  { name: "Pants", category: "Clothing", price: 100 },
-];
-console.log(`Respuesta esperada: { products: "Smartphone, Laptop", totalPrice: 2000, }`);
-console.log("Respuesta obtenida");
-console.log(groupProducts1(products, "Electronics"))
-var end = performance.now();
-console.log(`Execution time: ${end - start} ms`)
-console.log("\n");
+function testExercise(input1, input2, output1, testFunction) {
+  let start = performance.now();
+  console.log(`Respuesta esperada: ${JSON.stringify(output1)}`);
+  let calculated = testFunction(input1, input2)
+  console.log(`Respuesta obtenida ${JSON.stringify(calculated)}`);
+  let assertion = JSON.stringify(output1) === JSON.stringify(calculated);
+  if (assertion) {
+    console.log("Assertion passed");
+  } else {
+    console.log(`Assertion failed: Result should be ${output1}`);
+  }
+  let end = performance.now();
+  console.log(`Execution time: ${end - start} ms`)
+  console.log("\n");
+}
 
-start = performance.now();
-products = [
+testExercise([
   { name: "Smartphone", category: "Electronics", price: 800 },
   { name: "Laptop", category: "Electronics", price: 1200 },
   { name: "Shirt", category: "Clothing", price: 50 },
   { name: "Pants", category: "Clothing", price: 100 },
-];
-console.log(`Respuesta esperada: { products: "Shirt, Pants", totalPrice: 150, }`);
-console.log("Respuesta obtenida");
-console.log(groupProducts2(products, "Clothing"))
-end = performance.now();
-console.log(`Execution time: ${end - start} ms`)
-console.log("\n\n\n");
+], "Electronics", { products: "Smartphone, Laptop", totalPrice: 2000 }, groupProducts1);
 
-start = performance.now();
-products = [
+testExercise([
   { name: "Smartphone", category: "Electronics", price: 800 },
   { name: "Laptop", category: "Electronics", price: 1200 },
   { name: "Shirt", category: "Clothing", price: 50 },
   { name: "Pants", category: "Clothing", price: 100 },
-];
-console.log(`Respuesta esperada: { products: "Smartphone, Laptop", totalPrice: 2000, }`);
-console.log("Respuesta obtenida");
-console.log(groupProducts1(products, "Electronics"))
-end = performance.now();
-console.log(`Execution time: ${end - start} ms`)
+], "Clothing", { products: "Shirt, Pants", totalPrice: 150 }, groupProducts2);
 
-start = performance.now();
-products = [
+testExercise([
   { name: "Smartphone", category: "Electronics", price: 800 },
   { name: "Laptop", category: "Electronics", price: 1200 },
   { name: "Shirt", category: "Clothing", price: 50 },
   { name: "Pants", category: "Clothing", price: 100 },
-];
-console.log(`Respuesta esperada: { products: "Smartphone, Laptop", totalPrice: 2000, }`);
-console.log("Respuesta obtenida");
-console.log(groupProducts2(products, "Electronics"))
-end = performance.now();
-console.log(`Execution time: ${end - start} ms`)
-console.log("\n\n");
+], "Electronics", { products: "Smartphone, Laptop", totalPrice: 2000 }, groupProducts1);
+
+testExercise([
+  { name: "Smartphone", category: "Electronics", price: 800 },
+  { name: "Laptop", category: "Electronics", price: 1200 },
+  { name: "Shirt", category: "Clothing", price: 50 },
+  { name: "Pants", category: "Clothing", price: 100 },
+], "Electronics", { products: "Smartphone, Laptop", totalPrice: 2000 }, groupProducts2);

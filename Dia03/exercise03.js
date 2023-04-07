@@ -15,14 +15,14 @@ function printTriangle(size, character) {
 }
 
 // Tests
-input1 = 5;
-input2 = "*";
-output1 = 
+let input1 = 5;
+let input2 = "*";
+let output1 = 
 `    *
    **
   ***
  ****
 *****`;
-calculated = printTriangle(input1, input2);
+let calculated = printTriangle(input1, input2);
 console.log(`Result printTriangle for (${input1}, ${input2}): ${calculated}`)
 console.assert(calculated === output1, `Result should be ${output1}`);

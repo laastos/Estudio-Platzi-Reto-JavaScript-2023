@@ -16,10 +16,10 @@ export function sendEmail(email, subject, body) {
 }
 
 // Tests
-var input1 = "test@mail.com";
-var input2 = "Reto 30";
-var input3 = "Únete a los 30 días de JS";
-var output1 = {
+let input1 = "test@mail.com";
+let input2 = "Reto 30";
+let input3 = "Únete a los 30 días de JS";
+let output1 = {
   email: "test@mail.com",
   subject: "Nuevo reto",
   body:  "Únete a los 30 días de JS",
@@ -27,6 +27,7 @@ var output1 = {
 sendEmail(input1, input2, input3)
   .then(result => test1(result))
   .catch(error => test1(error));
+
 function test1(calculated) {
   console.log(calculated);
   console.log(`Result sendEmail for (${input1}, ${input2}, ${input3}): ${calculated}`)

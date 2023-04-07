@@ -2,10 +2,10 @@ function calculateTip(billAmount, tipPercentage) {
   return billAmount * (tipPercentage / 100);
 }
 
-var input1 = 100;
-var input2 = 10;
-var output1 = 10;
-var calculated = calculateTip(input1, input2)
+let input1 = 100;
+let input2 = 10;
+let output1 = 10;
+let calculated = calculateTip(input1, input2)
 console.log(`Result calculateTip for (${input1}, ${input2}) : ${calculated}`)
 console.assert(calculated === output1, `Result should be ${output1}`);
 

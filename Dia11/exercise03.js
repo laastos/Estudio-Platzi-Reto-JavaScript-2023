@@ -12,8 +12,8 @@ async function runCode() {
 }
 
 // Tests
-var output1 = new Array('Task 1', 'Task 2', 'Task 3');
-var calculated = await runCode();
+let output1 = new Array('Task 1', 'Task 2', 'Task 3');
+let calculated = await runCode();
 console.log(calculated);
 console.log(`Result runCode : ${calculated}`)
 console.assert(calculated == output1, `Result should be ${output1}`);

@@ -33,10 +33,10 @@ function getPetExerciseInfo(type, age) {
 }
 
 // Tests
-var input1 = "perro";
-var input2 = 3;
-var output1 = "Los perros a esta edad necesitan caminatas diarias y sesiones de juego";
-var calculated = getPetExerciseInfo(input1, input2);
+let input1 = "perro";
+let input2 = 3;
+let output1 = "Los perros a esta edad necesitan caminatas diarias y sesiones de juego";
+let calculated = getPetExerciseInfo(input1, input2);
 console.log(`Result getPetExerciseInfo for (${input1}, ${input2}): ${calculated}`)
 console.assert(calculated === output1, `Result should be ${output1}`);
 

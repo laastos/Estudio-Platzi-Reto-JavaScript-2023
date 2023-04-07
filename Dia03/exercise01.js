@@ -16,9 +16,9 @@ function isLeapYear(year) {
 }
 
 // Tests
-var input1 = 2000;
-var output1 = true;
-var calculated = isLeapYear(input1);
+let input1 = 2000;
+let output1 = true;
+let calculated = isLeapYear(input1);
 console.log(`Result isLeapYear for ${input1}: ${calculated}`)
 console.assert(calculated === output1, `Result should be ${output1}`);
 
