@@ -22,7 +22,7 @@ function testExercise(input1, output1, testFunction) {
   if (assertion) {
     console.log("Assertion passed");
   } else {
-    console.log(`Assertion failed: Result should be ${output1}`);
+    console.log(`Assertion failed: Result should be ${JSON.stringify(output1)}`);
   }
   let end = performance.now();
   console.log(`Execution time: ${end - start} ms`)
