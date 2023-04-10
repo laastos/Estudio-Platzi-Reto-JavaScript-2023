@@ -1,4 +1,4 @@
-class Car {
+export class Car {
   constructor (brand, model, year, mileage) {
     this.brand = brand;
     this.model = model;

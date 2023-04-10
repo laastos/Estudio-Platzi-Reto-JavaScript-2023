@@ -1,4 +1,4 @@
-function arrayModified() {
+export function arrayModified() {
   Array.prototype.myFilter = function (callback) {
     let filtered = [];
     for (let i = 0; i < this.length; i++) {
