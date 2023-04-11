@@ -1,4 +1,4 @@
-import { doTask1, doTask2, doTask3 } from './tasks03.js';
+import { doTask1, doTask2, doTask3 } from './tasks.js';
 
 async function runCode() {
   const strings = [];
