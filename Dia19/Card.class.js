@@ -1,4 +1,4 @@
-import { Pay } from "./exercise02_Pay.class.js";
+import { Pay } from "./Pay.class.js";
 
 export class Card extends Pay {
   CARD_SIZE = 16;
@@ -6,9 +6,9 @@ export class Card extends Pay {
     super();
     this._cardNumber = cardNumber;
   }
-  get cardNumber() {
-    return this._cardNumber;
-  }
+  // Getters
+  get cardNumber() { return this._cardNumber; }
+
   makePay(quantity) {
     if (this._cardNumber.length == this.CARD_SIZE) {
       return {

@@ -1,4 +1,4 @@
-import { Reservation } from "./Reservation";
+import { Reservation } from "./Reservation.js";
 
 export class Flight {
   constructor(origin, destination, date, capacity, price) {

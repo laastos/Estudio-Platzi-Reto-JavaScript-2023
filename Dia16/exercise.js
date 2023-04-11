@@ -1,4 +1,4 @@
-function protectDog(dog) {
+export function protectDog(dog) {
   let dogCopy = Object.assign({}, dog);
   Object.freeze(dogCopy);
   for (let prop in dogCopy) {

@@ -1,4 +1,4 @@
-import { Product } from "./exercise01_products.js";
+import { Product } from "./products.js";
 
 export class Article extends Product {
   addToCart(name, quantity) {

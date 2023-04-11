@@ -1,5 +1,5 @@
-import { Flight } from "./Flight";
-import { Reservation } from "./Reservation";
+import { Flight } from "./Flight.js";
+import { Reservation } from "./Reservation.js";
 
 export class EconomicFlight extends Flight {
   constructor(origin, destination, date, capacity, price) {

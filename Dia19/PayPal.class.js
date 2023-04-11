@@ -5,9 +5,9 @@ export class PayPal extends Pay {
     super();
     this._email = email;
   }
-  get email() {
-    return this._email;
-  }
+  // Getters
+  get email() { return this._email; }
+
   makePay(quantity) {
     return {
       ...super.makePay(quantity),

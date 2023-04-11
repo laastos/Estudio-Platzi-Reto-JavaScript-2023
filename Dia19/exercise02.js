@@ -1,6 +1,6 @@
-import { Cash } from "./exercise02_Cash.class.js";
-import { Card } from "./exercise02_Card.class.js";
-import { PayPal } from "./exercise02_PayPal.class.js";
+import { Cash } from "./Cash.class.js";
+import { Card } from "./Card.class.js";
+import { PayPal } from "./PayPal.class.js";
 
 export function processPay(method, quantity) {
   return method.makePay(quantity);
