@@ -5,15 +5,21 @@ export class MyArray {
   }
 
   map(func) {
-    let dataTemp = {}
+    let dataTemp = new MyArray();
     for (let prop in this.data) {
-      dataTemp[prop] = func(this.data[prop]);
+      dataTemp.push(func(this.data[prop]));
     }
     return dataTemp;
   }
 
   filter(func) {
-    // Tu código aquí 👈
+    let dataTemp = new MyArray();
+    for (let prop in this.data) {
+      if (func(this.data[prop])) {
+        dataTemp.push(this.data[prop]);
+      }
+    }
+    return dataTemp;
   }
 
   push(item) {
@@ -23,23 +29,51 @@ export class MyArray {
   }
 
   pop() {
-    let index = this.length;
-    let item = this.data[index];
-    delete this.data[index];
-    this.length--;
-    return item;
+    if (this.length > 0) {
+      let item = this.data[this.length - 1];
+      delete this.data[this.length - 1];
+      this.length--;
+      return item;
+    }
   }
 
   join(character = ",") {
-    // Tu código aquí 👈
+    let string = "";
+    for (let prop in this.data) {
+      if (string !== "") {
+        string += character;
+      }
+      string += this.data[prop];
+    }
+    return string;
   }
 
   shift() {
-    // Tu código aquí 👈
+    let dataTemp = {}, index = 0, item;
+    if (this.length > 0) {
+      item = this.data[0];
+      for (let prop in this.data) {
+        if (prop != 0) {
+          dataTemp[index++] = this.data[prop];
+        }
+      }
+      this.data = {...dataTemp};
+      this.length--;
+      return item;
+    }
   }
 
   unshift(item) {
-    // Tu código aquí 👈
+    if (item !== undefined) {
+      let dataTemp = {}, index = 1;
+      dataTemp[0] = item;
+      for (let prop in this.data) {
+        dataTemp[index++] = this.data[prop];
+      }
+      this.data = {...dataTemp};
+      this.length++;
+      return this.length;
+    }
   }
 }
 
@@ -59,4 +93,32 @@ if (assertion) {
   console.log(`Result: ${JSON.stringify(calculated)}`);
   console.log(`Assertion failed: Result should be ${JSON.stringify(output)}`);
 }
-
+// Test 2
+console.log('Test 2: Unshift');
+myArray = new MyArray();
+myArray.push("Platzinauta");
+myArray.unshift("Hola!");
+calculated = myArray.data;
+output = { 0: "Hola!", 1: "Platzinauta" };
+assertion = JSON.stringify(output) === JSON.stringify(calculated);
+if (assertion) {
+  console.log("Assertion passed");
+} else {
+  console.log(`Result: ${JSON.stringify(calculated)}`);
+  console.log(`Assertion failed: Result should be ${JSON.stringify(output)}`);
+}
+// Test 3
+console.log('Test 3: Shift');
+myArray = new MyArray();
+myArray.push("Platzinauta");
+myArray.push("Hola!");
+console.log(myArray.shift());
+calculated = myArray.data;
+output = { 0: "Hola!" };
+assertion = JSON.stringify(output) === JSON.stringify(calculated);
+if (assertion) {
+  console.log("Assertion passed");
+} else {
+  console.log(`Result: ${JSON.stringify(calculated)}`);
+  console.log(`Assertion failed: Result should be ${JSON.stringify(output)}`);
+}
