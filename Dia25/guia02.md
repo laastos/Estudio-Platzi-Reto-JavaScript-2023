@@ -9,7 +9,7 @@ El código original ya tiene una implementación del método hash por lo que no 
 
 **Ejemplo 1:**
 *Input:*
-```
+```javascript
 const contactList = new ContactList(10)
 contactList.insert("Mr michi", "123-456-7890")
 contactList.retrieveAll()
@@ -18,9 +18,10 @@ contactList.retrieveAll()
 ```
 [["Mr michi", "123-456-7890"]]
 ```
+
 **Ejemplo 2:**
 *Input:*
-```
+```javascript
 const contactList = new ContactList(10)
 contactList.insert("Mr michi", "123-456-7890")
 contactList.get("Mr Michi")
@@ -29,9 +30,10 @@ contactList.get("Mr Michi")
 ```
 "123-456-7890"
 ```
+
 **Ejemplo 3:**
 *Input:*
-```
+```javascript
 const contactList = new ContactList(10)
 contactList.insert("Mr michi", "123-456-7890")
 contactList.delete("Mr michi")
