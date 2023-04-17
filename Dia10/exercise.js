@@ -22,13 +22,19 @@ export function createTaskPlanner() {
     task.completed = true;
   }
   function getSortedTasksByPriority() {
-
+    let tasksTemp = JSON.parse(JSON.stringify(tasks));
+    return tasksTemp.sort((a, b) => {
+      if (a.priority > b.priority) return 1;
+      else if (a.priority < b.priority) return -1;
+      else return 0;
+    });
   }
   function filterTasksByTag(tag) {
     return tasks.filter(task => task.tags.includes(tag));
   }
   function updateTask(taskId, updates) {
-
+    let taskIndex = tasks.findIndex(task => task.id === taskId);
+    tasks[taskIndex] = {...tasks[taskIndex], ...updates};
   }
   return {
     addTask,
@@ -87,6 +93,30 @@ output1 = [{
   tags: ["shopping", "home"],
   completed: false,
 }];
+console.log(`Result: ${JSON.stringify(calculated)}`);
+assertion = JSON.stringify(output1) === JSON.stringify(calculated);
+if (assertion) {
+  console.log("Assertion passed");
+} else {
+  console.log(`Assertion failed: Result should be ${JSON.stringify(output1)}`);
+}
+// Test 3
+console.log('Test 3: Ordenar tareas por prioridad');
+calculated = planner.getSortedTasksByPriority();
+output1 = [{"id":1,"name":"Comprar leche","priority":1,"tags":["shopping","home"],"completed":false},{"id":2,"name":"Llamar a Juan","priority":3,"tags":["personal"],"completed":true}];
+console.log(`Result: ${JSON.stringify(calculated)}`);
+assertion = JSON.stringify(output1) === JSON.stringify(calculated);
+if (assertion) {
+  console.log("Assertion passed");
+} else {
+  console.log(`Assertion failed: Result should be ${JSON.stringify(output1)}`);
+}
+
+// Test 4
+console.log('Test 4: Actualizar tarea');
+planner.updateTask(1, {notes:"Leche deslactosada", place: "supermercado"});
+calculated = planner.getTasks();
+output1 = [{id:1,name:"Comprar leche",priority:1,tags:["shopping","home"],completed:false,notes:"Leche deslactosada", place: "supermercado"},{"id":2,"name":"Llamar a Juan",priority:3,tags:["personal"],completed:true}];
 console.log(`Result: ${JSON.stringify(calculated)}`);
 assertion = JSON.stringify(output1) === JSON.stringify(calculated);
 if (assertion) {
