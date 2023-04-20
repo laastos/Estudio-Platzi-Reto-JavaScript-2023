@@ -1,5 +1,3 @@
-import { Task } from './exercise.js';
-
 export class TaskDecorator {
   constructor(task, options) {
     this.task = task;
